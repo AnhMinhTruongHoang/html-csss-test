@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Thiết lập các thông tin về trang -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web</title>
+    
+    <!-- Liên kết với Bootstrap CSS từ CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    
+    <!-- Liên kết với thư viện jQuery từ CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- CSS tùy chỉnh -->
+    <style>
+      /* CSS cho footer */
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: red;
+        color: white;
+        text-align: center;
+      }
+      
+      /* CSS cho bảng */
+      table {
+        border: 1px solid red;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      /* CSS cho hàng và cột trong bảng */
+      tr,
+      td {
+        border: 1px solid red;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Thanh điều hướng -->
+    <nav class="navbar navbar-expand-sm bg-light">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <!-- Các liên kết trong thanh điều hướng -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link a</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link b</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link c</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- Phần nội dung chính -->
+    <div class="container">
+      <!-- Form đăng nhập -->
+      <form action="#" id="loginForm">
+        <table>
+          <tr>
+            <td><label for="user">User</label></td>
+            <td><input type="text" id="nhapUser" placeholder="user" /></td>
+          </tr>
+          <tr>
+            <td><label for="pass">Password</label></td>
+            <td>
+              <input type="password" id="nhapPass" placeholder="password" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center">
+              <!-- Nút đăng nhập -->
+              <button id="log" type="button" onclick="checkLogin()">
+                Login
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center" colspan="2">
+              <!-- Liên kết thay đổi mật khẩu -->
+              <a href="#" id="reChangePW">Change password</a>
+              <br />
+            </td>
+          </tr>
+        </table>
+        
+        <!-- Phần thay đổi mật khẩu ẩn -->
+        <div id="changepass" style="display: none">
+          <hr />
+          <input
+            type="password"
+            id="nhapPass2"
+            placeholder="Nhap password moi"
+          />
+
+          <input
+            type="password"
+            id="newPass"
+            placeholder="Nhap lai password moi"
+          />
+
+          <input
+            type="button"
+            id="changePwBtn"
+            value="Change pass"
+            onclick="changepass()"
+          />
+        </div>
+      </form>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <!-- Thông tin tác giả -->
+      <p>Author: M<br /><a href="mailto:me@example.com">@example.com</a></p>
+    </footer>
+
+    <!-- Script JavaScript -->
+    <script>
+      // Sự kiện click cho liên kết thay đổi mật khẩu
+      $("#reChangePW").click(function () {
+        $("#changepass").toggle();
+      });
+
+      // Lưu trữ thông tin đăng nhập trong Local Storage
+      localStorage.setItem("user", "admin");
+      localStorage.setItem("pass", "123");
+
+      // Hàm thay đổi mật khẩu
+      function changepass() {
+        if ($("#nhapPass").val() !== $("#newPass").val()) {
+          alert("Verify pass incorrect!");
+        } else {
+          localStorage.setItem("pass", $("#nhapPass2").val());
+          alert("Password changed successfully");
+        }
+      }
+
+      // Hàm kiểm tra đăng nhập
+      function checkLogin() {
+        let US = localStorage.getItem("user");
+        let PA = localStorage.getItem("pass");
+
+        if (US == $("#nhapUser").val() && PA == $("#nhapPass").val()) {
+          alert("TRUE");
+        } else {
+          alert("False");
+        }
+      }
+    </script>
+  </body>
+</html>

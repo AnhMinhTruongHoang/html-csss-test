@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test</title>
+        <style>
+            table,th,td{
+                border: solid 1px rgb(120, 203, 255);
+                border-collapse: collapse ;
+            }
+            table{
+                background-color: #FBFBCB;
+                color: rgb(5, 157, 252);
+                font-size: x-large;
+            }
+            body{
+                position: absolute;
+                left: 30%;
+            }
+            input{
+                height: 25px;
+            }
+            span{
+                position: absolute;
+                top: 332px;
+                left: 125px;
+            }
+            i{
+                position: absolute;
+                top: 296px;
+                left: 118px;
+            }
+            .text1{
+                border: solid 2px brown;
+                border-collapse: collapse;
+                width: 432px;
+                height: 64px;
+                position: relative;
+                top: 6px;
+                left: 81px;
+            }
+            .text2{
+                position: relative;
+                top: -15px;
+                left: 6px;
+                color: #eb990c;;
+                background-color: #FBFBCB;
+                width: 223px;
+                /* chữ in đậm */
+                /* font-weight: bold; */
+                /* chữ in nghiên */
+                font-style: italic;
+            }
+            .text3{
+                position: relative;
+                left: 240px;
+            }
+        </style>
+        <script>
+            // document.getElementById là lấy thông tin của tag theo id
+            // style.display là chỉnh hiển thị ẩn hiện của thuộc tính display
+            // display = contents là hiện
+            // display = none là ẩn
+            // onclick là nhấn vào mới chạy
+            // onchange là thay đổi giá trị mới chạy
+            // location.reload() để load lại trang dùng cgo nút reset
+            function aaa(){
+                document.getElementById('abc1').style.display = 'contents';
+            }
+            function bbb(){
+                document.getElementById('abc2').style.display = 'contents';
+            }
+            function ccc(){
+                document.getElementById('abc3').style.display = 'contents';
+            }
+        </script>
+    </head>
+    <body>
+        <!-- <form>   -->
+            <table>
+                <h1 style="color: rgb(120, 203, 255); text-align: center;">Đăng ký du lịch</h1>
+                <tr>
+                    <td><label for="firstname">Họ và tên</label></td>
+                    <td style="width: 400px;"><input type="text" size="45"></td>
+                </tr>
+                <tr>
+                    <td><label for="firstname">Địa chỉ</label></td>
+                    <td><input type="text" size="35"></td>
+                </tr>
+                <tr>
+                    <td><label for="firstname">Điện thoại</label></td>
+                    <td><input type="tel" size="28"></td>
+                </tr>
+                <tr>
+                    <td style="width: 200px;"><label for="firstname">Khách Việt Nam</label></td>
+                    <td><input type="checkbox"></td>
+                </tr>
+                <tr>
+                    <td><label for="firstname">Chọn tour</label></td>
+                    <td>
+                        <select  onchange="bbb()" style="height: 25px;">
+                            <option selected>---------------</option>
+                            <optgroup label="Miền Bắc">
+                            <option>Hà Nội - Hạ Long - Sapa</option>
+                            <option>Hà Nội - Chùa Hương - Ninh Bình</option>
+                            <option>Hà Nội - Các Bà - Tuân Châu</option>
+                            </optgroup>
+                            <optgroup label="Miền Trung">
+                            <option>Huế - Bạch Mã - Đà Nẵng</option>
+                            <option>Nha Trang - Đà Lạt</option>
+                            <option>Buông Mê Thuột - Gia Lai - Kontum</option>
+                            </optgroup>
+                            <optgroup label="Miền Nam">
+                            <option>TP.HCM - Cần Thơ - Cà Mau</option>
+                            <option>TP.HCM - Mỹ Tho</option>
+                        </optgroup>
+                        </select>
+                    </td>
+                </tr>
+                <tr id="abc2" style="display: none;">
+                    <td><label for="firstname">Phương tiện</label></td>
+                    <td><input onclick="ccc()" name="gender" type="radio"> Máy bay <input onclick="ccc()" name="gender" type="radio">Xe ô tô</td>
+                </tr>
+                <tr >
+                    <td colspan="2" style="text-align: center; height: 80px;">
+                        <div id="abc3" style="display: none;">
+                        <div class="text1">
+                            <div class="text2">Số lượng đoàn khách</div> 
+                        </div>
+                        <span><label for="number">Người Lớn</label>
+                            <input type="number" name="number" id="number" max="1000" value="0" min="1" step="1">
+                            <label for="number">Trẻ em</label>
+                            <input type="number" name="number" id="number" max="1000" value="0" min="1" step="1">
+                        </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="firstname">Ghi chú thêm</label></td>
+                    <td style="height: 60px;"><textarea style="width: 300px;"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                    <input onclick="aaa()"type="submit" name="btok"value="Đồng Ý">
+                    <button onclick="location.reload();" class="text3" type="reset">reset</button>  
+                </td>
+                </tr>
+                <tr id="abc1" style="display: none;">
+                    <td colspan="2" style="text-align: center; color: #eb990c;">
+                        Bạn đã đăng ký thành công!!!
+                    </td>
+                </tr>
+              </table>
+        <!-- </form> -->
+    </body>
+</html>

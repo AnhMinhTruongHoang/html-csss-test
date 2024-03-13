@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tạo form và các điều khiển trên form</title>
+        <style>
+            table, td, th{
+                border: solid 2px rgb(124, 4, 4);
+                border-collapse: collapse ;
+            }
+            table{
+                position: absolute;
+                left: 500px;
+                font-size: x-large;
+            }
+            td{
+                background-color: rgb(145, 227, 246);
+            }
+            input{
+                height: 28px;
+            }
+        </style>
+        <script>
+            function aaa(){
+                var bbb = document.getElementsByName("name")[0].value;
+                document.getElementById("abc1").innerText = bbb;
+                document.getElementById('abctr').style.display = 'contents';
+            }
+        </script>
+    </head>
+    <body>
+            <h1 style="text-align: center; color: red;">Đăng Nhập</h1>
+            <!-- <form action="http://google.com/" method="post"> -->
+        <table>
+            <tr>
+                <td><label for="firstname">Mã người dùng:</label></td>
+                <td><input type="text" placeholder="nhập tên đăng nhập" size="40" name="name"></td>
+            </tr>
+            <tr>
+                <td><label for="password"></label>Mật khẩu:</label></td>
+                <td><input type="password" placeholder="nhập mật khẩu" size="40" name="pass"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input onclick="aaa()" type="submit" name="btok" value="Đồng ý">
+                    <button onclick="location.reload();" class="text3" type="reset">Reset</button>  
+
+                </td>
+            </tr>
+            
+            <tr id="abctr"  style="display: none;" >
+                <td id="abc1" colspan="2" style="text-align: center;">
+                </td>
+            </tr>
+        </table>
+    <!-- </form> -->
+    </body>
+</html>

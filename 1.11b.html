@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="npm i bootstrap@5.3.3" />
+    <link rel="stylesheet" href="/onlick.js">
+    <style>
+      h1 {
+        text-align: center;
+        color: darkgreen;
+      }
+      form {
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      table {
+        border-collapse: collapse;
+        border: 1px solid darkgreen;
+        margin-left: auto;
+        margin-right: auto;
+        width: 500px;
+        height: 200px;
+      }
+      td,th{
+        background-color: aquamarine;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="contaniner">
+      <h1>Phiếu đăng ký tham gia khuyến mãi</h1>
+      <form action="#">
+        <table border="1">
+          <tr>
+            <td><label for="name">Họ và tên</label></td>
+            <td><input type="text" id="name" name="name" value="" /></td>
+          </tr>
+          <tr>
+            <td><label for="address">Địa chỉ</label></td>
+            <td><input type="text" id="address" name="address" value="" /></td>
+          </tr>
+          <tr>
+            <td><label for="phone">Điện thoại</label></td>
+            <td>
+              <input type="number" id="number" name="phone" value="number" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="jobs">nghề nghiệp:</label></td>
+            <td>
+              <select name="jobs" id="jobs">
+                <option value="giáo viên">giáo viên</option>
+                <option value="công nhân">công nhân</option>
+                <option value="sinh viên">sinh viên</option>
+                <option value="học sinh">học sinh</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="gender"> GT</label></td>
+            <td>
+              <input type="radio" name="gender" value="name" />
+              nam
+              <input type="radio" name="gender" value="name" />
+              nu
+            </td>
+          </tr>
+          <td><label for="sp">chọn sp:</label></td>
+          <td>
+            <select name="jobs" id="jobs">
+              <option value="bút">bút</option>
+              <option value="giấy">giấy</option>
+              <option value="tẩy">tẩy</option>
+            </select>
+            <tr>
+              <td><label for="số người"> số người</label></td>
+              <td>
+                <input type="number" id="số người" name="số người" value="" />
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center" colspan="2">
+                <button onclick="myFunction()">Đồng ý</button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"><p id="demo"></p</td>
+
+            </tr>
+          </td>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

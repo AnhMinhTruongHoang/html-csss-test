@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculator</title>
+    <style>
+      /* CSS cho bảng và nút */
+      table {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 300px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      button {
+        border: 1px solid black;
+        width: 100%;
+        padding: 20px 40px;
+        color: black;
+        font-size: 12px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        background-color: whitesmoke;
+      }
+      .daubang {
+        width: 100%;
+        padding: 20px 5px;
+        color: red;
+        font-size: 12px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        background-color: whitesmoke;
+      }
+      #kq {
+        border: grey 1px double;
+        color: black;
+        text-align: right;
+        font-size: 50px;
+        font-family: Impact, "Arial Narrow Bold", sans-serif;
+        max-width: 100%;
+      }
+    </style>
+    <script>
+      var temp = 0; // Giá trị hiện tại trên màn hình
+      var pt = 0; // Phép tính được chọn (1: cộng, 2: trừ, 3: nhân, 4: chia)
+      var st1 = 0; // Giá trị lưu trữ khi chọn phép tính
+
+      function press(intpress) {
+        document.getElementById("kq").innerHTML += intpress;
+        temp = document.getElementById("kq").innerHTML;
+        temp = parseInt(temp);
+        console.log(st1, "st1", temp, "temp");
+        document.getElementById("kq").innerHTML = temp;
+      }
+      function clearData() {
+        document.getElementById("kq").innerHTML = 0;
+        var temp = 0; // Giá trị hiện tại trên màn hình
+        var pt = 0; // Phép tính được chọn (1: cộng, 2: trừ, 3: nhân, 4: chia)
+        var st1 = 0; // Giá trị lưu trữ khi chọn phép tính
+      }
+      function dau(inputPt) {
+        pt = inputPt;
+        document.getElementById("kq").innerHTML = 0;
+        st1 = temp;
+      }
+      function bang() {
+        var res = 0;
+        if (pt == 1) {
+          res = st1 + temp;
+        } else if (pt == 2) {
+          res = st1 - temp;
+        } else if (pt == 3) {
+          res = st1 * temp;
+        } else if (pt == 4) {
+          res = st1 / temp;
+        }
+        console.log(st1, pt, temp);
+        document.getElementById("kq").innerHTML = res;
+      }
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td colspan="4">
+          <div id="kq">0</div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <button id="cong" onclick="dau(1)">+</button>
+        </td>
+        <td>
+          <button id="tru" onclick="dau(2)">-</button>
+        </td>
+        <td>
+          <button id="nhan" onclick="dau(3)">x</button>
+        </td>
+        <td>
+          <button id="chia" onclick="dau(4)">:</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <button id="n7" onclick="press('7')">7</button>
+        </td>
+        <td>
+          <button id="n8" onclick="press('8')">8</button>
+        </td>
+        <td>
+          <button id="n9" onclick="press('9')">9</button>
+        </td>
+        <td rowspan="3" class="daubang">
+          <button id="eq" onclick="bang()">=</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <button id="n4" onclick="press('4')">4</button>
+        </td>
+        <td>
+          <button id="n5" onclick="press('5')">5</button>
+        </td>
+        <td>
+          <button id="n6" onclick="press('6')">6</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button id="n1" onclick="press('1')">1</button>
+        </td>
+        <td>
+          <button id="n2" onclick="press('2')">2</button>
+        </td>
+        <td>
+          <button id="n3" onclick="press('3')">3</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button id="n0" onclick="press('0')">0</button>
+        </td>
+        <td>
+          <button id="tp" onclick="press('.')">.</button>
+        </td>
+        <td>
+          <button id="ac" onclick="clearData()">AC</button>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

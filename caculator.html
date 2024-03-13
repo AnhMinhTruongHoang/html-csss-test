@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <style>
+      /* CSS cho các nút */
+      button {
+        width: 100%;
+        height: 100%;
+        background-color: darkblue;
+        color: white;
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        border-radius: 20px;
+      }
+
+      /* CSS cho kết quả hiển thị */
+      #dis {
+        border: grey 1px double;
+        color: darkblue;
+        text-align: right;
+        font-size: 50px;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        max-width: 100%;
+      }
+
+      /* CSS cho nút '=' */
+      #eq {
+        height: 420px;
+      }
+    </style>
+    <script>
+      var temp = 0; // Biến lưu trữ giá trị hiện tại
+      var st1 = 0; // Biến lưu trữ giá trị khi chọn phép tính
+      var pt = 0; // Biến lưu trữ phép tính được chọn (0: không có phép tính, 1: cộng, 2: trừ, 3: nhân, 4: chia)
+
+      // Hàm được gọi khi nhấn vào các nút số
+      function press(digit) {
+        document.getElementById("dis").innerHTML += digit; // Hiển thị số được nhấn lên màn hình
+        temp = document.getElementById("dis").innerHTML; // Cập nhật giá trị hiện tại
+        temp = parseInt(temp); // Chuyển giá trị hiện tại sang kiểu số nguyên
+        console.log("st1", st1, "temp", temp); // Hiển thị dữ liệu debug trong console
+        document.getElementById("dis").innerHTML = temp; // Hiển thị giá trị mới lên màn hình
+      }
+
+      // Hàm được gọi khi nhấn nút "AC" (Clear)
+      function clearData() {
+        document.getElementById("dis").innerHTML = 0; // Đặt màn hình về 0
+        temp = 0; // Đặt lại giá trị hiện tại
+        pt = 0; // Đặt lại phép tính
+        st1 = 0; // Đặt lại giá trị khi chọn phép tính
+      }
+
+      // Hàm được gọi khi chọn phép tính (+, -, x, :)
+      function pheptinh(inputPt) {
+        pt = inputPt; // Lưu phép tính được chọn
+        document.getElementById("dis").innerHTML = 0; // Đặt màn hình về 0 để nhập số mới
+        st1 = temp; // Lưu giá trị hiện tại vào biến st1
+      }
+
+      // Hàm được gọi khi nhấn nút '='
+      function bang() {
+        var kq = 0; // Biến lưu trữ kết quả
+        if (pt == 1) {
+          kq = st1 + temp; // Thực hiện phép tính cộng
+        } else if (pt == 2) {
+          kq = st1 - temp; // Thực hiện phép tính trừ
+        } else if (pt == 3) {
+          kq = st1 * temp; // Thực hiện phép tính nhân
+        } else if (pt == 4) {
+          kq = st1 / temp; // Thực hiện phép tính chia
+        }
+        console.log(st1, pt, temp); // Hiển thị dữ liệu debug trong console
+        document.getElementById("dis").innerHTML = kq; // Hiển thị kết quả lên màn hình
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Bảng nút -->
+    <table>
+      <!-- Dòng 1: Màn hình hiển thị kết quả -->
+      <tr>
+        <td colspan="4">
+          <div id="dis">0</div>
+        </td>
+      </tr>
+      <!-- Dòng 2: Nút cộng, trừ, nhân, chia -->
+      <tr>
+        <td><button id="c" onclick="pheptinh(1)">+</button></td>
+        <td><button id="t" onclick="pheptinh(2)">-</button></td>
+        <td><button id="n" onclick="pheptinh(3)">x</button></td>
+        <td><button id="ch" onclick="pheptinh(4)">:</button></td>
+      </tr>
+      <!-- Dòng 3: Các nút số -->
+      <tr>
+        <td><button id="n7" onclick="press(7)">7</button></td>
+        <td><button id="n8" onclick="press(8)">8</button></td>
+        <td><button id="n9" onclick="press(9)">9</button></td>
+        <td rowspan="4"><button id="eq" onclick="bang()">=</button></td>
+      </tr>
+      <!-- Dòng 4: Các nút số -->
+      <tr>
+        <td><button id="n4" onclick="press(4)">4</button></td>
+        <td><button id="n5" onclick="press(5)">5</button></td>
+        <td><button id="n6" onclick="press(6)">6</button></td>
+      </tr>
+      <!-- Dòng 5: Các nút số -->
+      <tr>
+        <td><button id="n1" onclick="press(1)">1</button></td>
+        <td><button id="n2" onclick="press(2)">2</button></td>
+        <td><button id="n3" onclick="press(3)">3</button></td>
+      </tr>
+      <!-- Dòng 6: Nút số 0, dấu chấm và nút Clear -->
+      <tr>
+        <td><button id="n0" onclick="press(0)">0</button></td>
+        <td><button id="tp">.</button></td>
+        <td><button id="ac" onclick="clearData()">AC</button></td>
+      </tr>
+    </table>
+  </body>
+</html>

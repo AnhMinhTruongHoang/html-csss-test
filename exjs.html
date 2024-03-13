@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js</title>
+    <style></style>
+    <script>
+      const USER = "a";
+      const PW = "123";
+      function login() {
+        var u = document.getElementById("ui").value;
+        var p = document.getElementById("pi").value;
+        if (u == USER && p == PW) {
+          document.getElementById("logginres").innerHTML =
+            "Success! Welcome " + document.getElementById("ui").value;
+          document.getElementById("tt").style.display = "contents";
+        } else {
+          document.getElementById("logginres").innerHTML = "failed ";
+        }
+      }
+      function cong() {
+        var s1 = document.getElementById("st1").value;
+        var s2 = document.getElementById("st2").value;
+        var res = parseInt(s1) - parseInt(s2);
+        document.getElementById("rendercong").innerHTML =
+          s1 + " + " + s2 + " = " + res;
+      }
+      function tru() {
+        var s1 = document.getElementById("st1").value;
+        var s2 = document.getElementById("st2").value;
+        var res = parseInt(s1) - parseInt(s2);
+        document.getElementById("rendertru").innerHTML =
+          s1 + " - " + s2 + " = " + res;
+      }
+      function nhan() {
+        var s1 = document.getElementById("st1").value;
+        var s2 = document.getElementById("st2").value;
+        var res = parseInt(s1) * parseInt(s2);
+        document.getElementById("rendernhan").innerHTML =
+          s1 + " * " + s2 + " = " + res;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="customheader">
+      <!-- <form style="margin-right: auto;"  action="_blank" method="POST"> -->
+      <label>Username: </label>
+      <input
+        type="text"
+        name="userName"
+        id="ui"
+        placeholder="Nhập mã người dùng "
+        required
+      />
+      <br />
+      <label>Mật khẩu: </label>
+      <input
+        type="password"
+        name="password"
+        id="pi"
+        placeholder="Nhập mật khẩu"
+        required
+      />
+      <br />
+      <input
+        type="submit"
+        name="submit"
+        value="Click me"
+        onclick="login()"
+      /><br />
+      <p id="logginres" style="display: none">ket qua</p>
+      <hr />
+      <!-- </form> -->
+
+      <!-- <div id="cal" style="display: none;"> -->
+      <div id="tt" style="display: none">
+        <h2 class="customHeader">Tinh toan</h2>
+        <label for="st1">st1; </label>
+        <input type="number" id="st1" placeholder="Nhap s1" />
+        <label for="st2">st2: </label>
+        <input type="number" id="st2" placeholder="Nhap s2" />
+        <br />
+        <input type="button" value="Cong" onclick="cong()" />
+        <p id="rendercong">Result will be here</p>
+        <input type="button" value="Tru" onclick="tru()" />
+        <p id="rendertru">Result will be here</p>
+        <input type="button" value="nhan" onclick="nhan()" />
+        <p id="rendernhan">Result will be here</p>
+      </div>
+    </div>
+  </body>
+</html>
